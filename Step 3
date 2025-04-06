@@ -23,6 +23,32 @@ while display != correct_guess:
         else:
             display += "_"
     print(display)
+
+
+# Code to study
+import random
+
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+print(chosen_word)  # Just for testing; remove this in final game
+
+# Create a "display" list with blanks for each letter
+display = ["_"] * len(chosen_word)
+print(" ".join(display))
+
+# Loop until the word is guessed
+while "_" in display:
+    guess = input("Guess a letter: ").lower()
+
+    # Loop through each letter in the chosen word
+    for index, letter in enumerate(chosen_word):
+        if letter == guess:
+            display[index] = guess  # Replace blank with guessed letter
+
+    print(" ".join(display))  # Show current state of the word
+
+print("You win!")
+
 print(display)
 
 
