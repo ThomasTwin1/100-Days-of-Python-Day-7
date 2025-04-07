@@ -48,6 +48,8 @@ while "_" in display:
     print(" ".join(display))  # Show current state of the word
 
 print("You win!")
+# Questions
+# What is for index?
 
 print(display)
 
