@@ -1,0 +1,87 @@
+import random
+stages = [r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+
+
+# TODO-1: Create a "placeholder" with the same number of blanks as the chosen_word
+print("Hello welcome to hangman.\nYou get 5 chances to guess the blank word correctly. Good luck")
+display = ["_"] * len(chosen_word)
+print("".join(display))
+print(chosen_word)
+
+
+# TODO-2: Create a "display" that puts the guess letter in the right positions and _ in the rest of the string.
+correct_guess = chosen_word
+chances = 5
+while "_" in display and chances > 0:
+    print(display)
+    # User guess
+    guess = input("Guess a letter: ").lower()
+#     # assigns the variable position and letter within the chosen word
+    if guess in chosen_word:
+        for position, letter in enumerate(chosen_word):
+            if letter == guess:
+                # Correct guess replaces blanks
+                display[position] = guess
+    else:
+        chances -= 1
+        print(f"You have {chances} lives remaining")
+        if chances == 0:
+            print("Game over")
