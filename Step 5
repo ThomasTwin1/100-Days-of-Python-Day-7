@@ -1,0 +1,110 @@
+import random
+
+# Hangman stages representing lives
+stages = [r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+# Word list
+word_list = ["aardvark", "baboon", "camel"]
+chosen_word = random.choice(word_list)
+
+# Placeholder for the word
+display = ["_"] * len(chosen_word)
+
+# Initial message
+print("Hello! Welcome to Hangman.")
+print("You get 7 chances to guess the word correctly. Good luck!")
+print(" ".join(display))  # Display blanks for the word
+
+# Game variables
+chances = len(stages) - 1
+guessed_letters = []
+
+# Main game loop
+while "_" in display and chances > 0:
+    # Show current display and remaining chances
+    print("\n" + " ".join(display))
+    print(f"Lives remaining: {chances}")
+    print(stages[chances])
+
+    # User input
+    guess = input("Guess a letter: ").lower()
+
+    # Check for duplicate guesses
+    if guess in guessed_letters:
+        print(f"You've already guessed '{guess}'. Try again!")
+        continue
+    guessed_letters.append(guess)
+
+    # Check if the guess is correct
+    if guess in chosen_word:
+        for position, letter in enumerate(chosen_word):
+            if letter == guess:
+                display[position] = guess
+        print(f"Good guess! '{guess}' is in the word.")
+    else:
+        # Incorrect guess, reduce chances
+        chances -= 1
+        print(f"Wrong guess! '{guess}' is not in the word.")
+
+# End of game
+if "_" not in display:
+    print("\n" + " ".join(display))
+    print("Congratulations, you've guessed the word and won!")
+else:
+    print(stages[0])
+    print("Game over! The word was:", chosen_word)
