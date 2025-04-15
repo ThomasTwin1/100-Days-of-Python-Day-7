@@ -1,0 +1,40 @@
+
+# Pseudo code
+
+# Hangman Steps
+
+# 1. Get the ASCII ART for Hangman (complete)
+
+# 2. Make a word bank
+chosen_word = ["Sherrard", "Tiera", "Kai", "Kairo", "Kaila", "Kailee"]
+#
+# 3. Make word bank random
+# random.shuffle function randomly shuffles list by modifying the original list.
+random.shuffle(chosen_word)
+print(chosen_word)
+
+# random.sample function randomly shuffles list by creating a new list and keep original list intact
+shuffled_word = random.sample(chosen_word, len(chosen_word))
+print(shuffled_word)
+
+# random.shuffle() and random.sample() both use permutation to randomize objects in python.
+# permutation is the arrangement of items in a specific order
+
+# Example 1: Permutations of 3 Items
+# Items: [A, B, C]
+#
+# Possible arrangements (permutations):
+#
+# [A, B, C]
+#
+# [A, C, B]
+#
+# [B, A, C]
+#
+# [B, C, A]
+#
+# [C, A, B]
+#
+# [C, B, A]
+#
+# 3!=3×2×1=6.
