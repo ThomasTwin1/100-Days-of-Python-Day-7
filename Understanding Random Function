@@ -38,3 +38,40 @@ print(shuffled_word)
 # [C, B, A]
 #
 # 3!=3×2×1=6.
+
+# 22APR2025
+# Hangman steps:
+# 1. Make a word bank that randomly selects a word
+
+# word_bank = ["apple", "pear", "melon"]
+# 
+# chosen_word = random.choice(word_bank)
+# 
+# print(chosen_word)
+
+# Random options
+# random.shuffle() shuffles list in place and modifies original list. Can not be assigned variable to prevent confusion.
+# Developers might expect a new list if assign to a variable.
+# import random
+#
+# my_list = [1, 2, 3, 4]
+# random.shuffle(my_list)  # Modifies my_list directly
+# print(my_list)  # Shuffled output, e.g., [4, 1, 3, 2]
+
+
+# random.sample() creates a new random list and keeps the original list intact:
+# import random
+# original_list = [1, 2, 3, 4]
+# shuffled_list = random.sample(original_list, len(original_list))  # Returns a new shuffled list
+#
+# print(original_list)  # Unchanged
+# print(shuffled_list)  # New shuffled list
+
+
+# Random.choice picks an item from the list
+# import random
+# word_bank = ["apple", "pear", "melon"]
+# 
+# chosen_word = random.choice(word_bank)
+# 
+# print(chosen_word)
